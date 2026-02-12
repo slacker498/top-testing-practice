@@ -19,3 +19,7 @@ test("Capitalize numbers' string", () => {
 test("Capitalize numbers as type 'Number'", () => {
     expect(capitalize(23122)).toBe("23122");
 })
+
+test("Handle invalid types", () => {
+    expect(() => capitalize({"key": "value"})).toThrow();
+})
