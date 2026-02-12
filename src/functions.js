@@ -76,4 +76,20 @@ const calculator = (() => {
     return {add, subtract, multiply, divide};
 })();
 
-export { capitalize, reverseString, calculator };
+
+function analyzeArray(array) {
+    if (!(array instanceof Array)) return "Param is not an array!";
+    for (let item of array) {
+        if (typeof item !== "number" && typeof item !== "bigint" ) return "Given array contains a non-number!";
+    }
+    return (
+        {
+            average: array.reduce((total, curr) => total + curr , 0) / (array.length || Number(1)),
+            min: array.reduce((maxVal, curr) => Math.min(maxVal, curr), array[0]) || Number(0),
+            max: array.reduce((minVal, curr) => Math.max(minVal, curr), array[0]) || Number(0),
+            length: array.length || Number(0),
+        }
+    )
+}
+
+export { capitalize, reverseString, calculator, analyzeArray };
