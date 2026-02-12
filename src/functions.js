@@ -92,4 +92,28 @@ function analyzeArray(array) {
     )
 }
 
-export { capitalize, reverseString, calculator, analyzeArray };
+function caesarCipher(string, shift) {
+    if (typeof string !== "string" || typeof shift !== "number") return "ValueError: First param must be a string and shift must be number";
+
+    // Modify Number prototype to respond properly with negative shift
+    Number.prototype.mod = function(b) {
+        return ((this % b) + b) % b;
+    }
+
+    const isUpper = (code) => code >= 65 && code < 65 + 26;
+    const isAlpha = (code) => (code >= 65 && code < 65 + 26) || (code >= 97 && code < 97 + 26);
+
+    let result = "";
+
+    for (let i = 0; i < string.length; i++) {
+        const letter = string.charCodeAt(i);
+        const shiftCode = isUpper(letter)? 65 : 97;
+
+        result += String.fromCharCode( (isAlpha(letter))? shiftCode + (letter - shiftCode + shift).mod(26) : letter);
+    }
+
+    return result;
+}
+
+
+export { capitalize, reverseString, calculator, caesarCipher, analyzeArray };
