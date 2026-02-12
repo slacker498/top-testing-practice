@@ -21,5 +21,5 @@ test("Capitalize numbers as type 'Number'", () => {
 })
 
 test("Handle invalid types", () => {
-    expect(() => capitalize({"key": "value"})).toThrow();
+    expect(capitalize({"key": "value"})).toBeNull();
 })
