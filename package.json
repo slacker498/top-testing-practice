@@ -1,0 +1,26 @@
+{
+  "name": "top-testing-practice",
+  "version": "1.0.0",
+  "description": "JS Path's \"Testing Practice\" with Jest",
+  "homepage": "https://github.com/slacker498/top-testing-practice#readme",
+  "bugs": {
+    "url": "https://github.com/slacker498/top-testing-practice/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/slacker498/top-testing-practice.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "./src/functions.js",
+  "scripts": {
+    "test": "jest",
+    "setup-jest": "npm install --save-dev jest && npm install --save-dev @babel/preset-env ",
+    "watch": "jest --watch *.js"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.29.0",
+    "jest": "^30.2.0"
+  }
+}
